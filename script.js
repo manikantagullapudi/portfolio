@@ -176,4 +176,36 @@ document.querySelectorAll('a, button, .skill-category, .tag').forEach(el => {
 // Console message for developers
 console.log('%c👋 Hello Developer!', 'font-size: 20px; color: #8a2be2; font-weight: bold;');
 console.log('%cWelcome to Manikanta\'s Portfolio', 'font-size: 14px; color: #00d4ff;');
+
 console.log('%cBuilt with ❤️ using HTML, CSS, and JavaScript', 'font-size: 12px; color: #ccc;');
+
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Smooth scrolling for anchors
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+
+        // Close menu on mobile
+        if(navLinks.classList.contains('active')){
+            navLinks.classList.remove('active');
+        }
+    });
+});
+
+// Navbar background change on scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if(window.scrollY > 50){
+        navbar.style.background = "rgba(0,0,0,0.95)";
+    } else {
+        navbar.style.background = "rgba(0,0,0,0.85)";
+    }
+});
