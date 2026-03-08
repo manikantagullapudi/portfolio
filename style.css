@@ -60,7 +60,7 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 5px;
+    gap: 2px;
 }
 
 .hamburger span {
@@ -572,3 +572,4 @@ section:nth-child(7) { animation-delay: 0.6s; }
     }
 
 }
+
